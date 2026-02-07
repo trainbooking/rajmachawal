@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Rajma Chawal Animated Web App</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(#ffefd5, #ffe4b5);
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #b22222;
+    }
+
+    .container {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        width: 65%;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    button {
+        padding: 12px 20px;
+        margin: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        background: #ff7043;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e64a19;
+    }
+
+    #output {
+        margin-top: 20px;
+        padding: 15px;
+        background: #fff8dc;
+        border-radius: 10px;
+        text-align: center;
+        min-height: 120px;
+    }
+
+    /* 🔥 Boiling Animation */
+    .pot {
+        font-size: 50px;
+        animation: boil 1s infinite alternate;
+    }
+
+    @keyframes boil {
+        from { transform: translateY(0); }
+        to { transform: translateY(-5px); }
+    }
+
+    /* 🥄 Mixing Animation */
+    .spoon {
+        font-size: 40px;
+        display: inline-block;
+        animation: mix 1.5s linear infinite;
+    }
+
+    @keyframes mix {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* ⏳ Cooking dots */
+    .dots::after {
+        content: "";
+        animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+        0% { content: ""; }
+        33% { content: "."; }
+        66% { content: ".."; }
+        100% { content: "..."; }
+    }
+
+    footer {
+        margin-top: 20px;
+        font-size: 14px;
+        color: gray;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>🍛 Rajma Chawal Maker 🍚</h1>
+
+<div class="container">
+    <p>Select what you want to cook:</p>
+
+    <button onclick="makeRajma()">Make Rajma</button>
+    <button onclick="makeChawal()">Make Chawal</button>
+    <button onclick="makeFullMeal()">Make Full Meal</button>
+
+    <div id="output">👨‍🍳 Waiting for your command...</div>
+</div>
+
+<footer>
+    Computer Project | Class XI | Animated Rajma Chawal App
+</footer>
+
+<script>
+function makeRajma() {
+    document.getElementById("output").innerHTML = `
+    <h3>🍲 Cooking Rajma</h3>
+    <div class="pot">🍲</div>
+    <p class="dots">Boiling rajma</p>
+    <div class="spoon">🥄</div>
+    <p>Mixing spices</p>
+    <p>✅ Rajma is cooking nicely!</p>
+    `;
+}
+
+function makeChawal() {
+    document.getElementById("output").innerHTML = `
+    <h3>🍚 Cooking Chawal</h3>
+    <div class="pot">🍚</div>
+    <p class="dots">Rice boiling</p>
+    <p>✅ Chawal is getting fluffy!</p>
+    `;
+}
+
+function makeFullMeal() {
+    document.getElementById("output").innerHTML = `
+    <h3>🍛🍚 Full Rajma Chawal</h3>
+    <div class="pot">🍲</div>
+    <div class="spoon">🥄</div>
+    <p class="dots">Final cooking</p>
+    <p>😋 <b>Rajma Chawal Ready to Serve!</b></p>
+    <p>⚠️ Food coma incoming 💤</p>
+    `;
+}
+</script>
+
+</body>
+</html>
+
+</html>
